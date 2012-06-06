@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>mongocsharpdriver</id>
+    <version>1.4.2</version>
+    <title>Official MongoDB C# driver</title>
+    <authors>10gen, Inc.</authors>
+    <owners>Sridhar Nanjundeswaran</owners>
+    <iconUrl>http://jobs.mongodb.org/files/logos/889002/889002.png</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Official 10gen supported C# driver for MongoDB</description>
+    <projectUrl>http://www.mongodb.org/display/DOCS/CSharp+Language+Center</projectUrl>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <tags>mongodb mongo nosql</tags>
+    <language>en-US</language>
+  </metadata>
+  <files>
+    <file src="Bson\bin\Release\MongoDB.Bson.dll" target="lib\net35" />
+    <file src="Bson\bin\Release\MongoDB.Bson.pdb" target="lib\net35" />
+    <file src="Bson\bin\Release\MongoDB.Bson.xml" target="lib\net35" />
+    <file src="Driver\bin\Release\MongoDB.Driver.dll" target="lib\net35" />
+    <file src="Driver\bin\Release\MongoDB.Driver.pdb" target="lib\net35" />
+    <file src="Driver\bin\Release\MongoDB.Driver.XML" target="lib\net35" />
+    <file src="Release Notes\Release Notes v1.4.2.txt" target="" />
+    <file src="License.rtf" target ="" />
+  </files>
+</package>

@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Posts</title>
+    </head>
+    <body>
+        <form action="/newpost" method="post">
+            <dl>
+                <dt><label for="textpost">Enter new post:</label></dt>
+                <dd>
+                    <textarea name="textpost" id="textpost"></textarea>
+                </dd>
+            </dl>
+			<input type="submit" value="Post it!"/>
+        </form>
+        <hr />
+        <div>
+           {% for post in posts %}
+               <fieldset>
+                   {{ post["text"] }}
+                   <form action="/newlike" method="post">
+                       <input type="hidden" name="idpost" value="{{ post["_id"] }}" />
+                       <input type="submit" value="Like!"/>
+                   </form>
+                   <ul>
+                       <li><em><b>Comments:</b> {{ len(post["comments"]) }}</em></li>
+                       <li><em><b>Likes:</b> {{ post["likes"] }}</em></li>
+                   </ul>
+                   {% if (post["comments"]) %}
+                       <h4>Comments:</h4>
+                       <ul>
+                           {% for comment in post["comments"] %}
+                               <li>{{ comment["text"] }} at <em>{{ comment["date"] }}</em></li>
+                           {% end %}
+                       </ul>
+                   {% end %}
+                   <form action="/newcomment" method="post">
+                        <dl>
+                            <dt><input type="hidden" name="idpost" value="{{ post["_id"] }}" /></dt>
+                            <dd><textarea id="comment" name="comment"></textarea></dd>
+                        </dl>
+                       <input type="submit" value="Comment!"/>
+                   </form>
+               </fieldset>
+           {% end %}
+        </div>
+    </body>
+</html>

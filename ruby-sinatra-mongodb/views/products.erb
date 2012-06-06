@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<title>Products</title>
+	</head>
+	<body>
+		<fieldset>
+			<legend>New product:</legend>
+			<form action="/newproduct" method="post">
+				<dl>
+					<dt><label for="name">Name:</label></dt>
+					<dd><input type="text" name="name" id="name" /></dd>
+					<dt><label for="description">Description:</label></dt>
+					<dd>
+						<textarea name="description" id="description"></textarea>
+					</dd>
+					<dt><label for="price">Price:</label></dt>
+					<dd><input type="text" name="price" id="price" /></dd>
+					<dt><label for="quantity">Quantity:</label></dt>
+					<dd><input type="text" name="quantity" id="quantity" /></dd>
+				</dl>
+				<input type="submit" value="Save it!"/>
+			</form>
+		</fieldset>
+		<hr />
+		<% @PRODUCTS.each do |product| %>
+			<fieldset>
+				<h4><%= product['name'] %></h4>
+				<dl>
+					<dt>Description:</dt>
+					<dd><%= product['description'] %></dd>
+					<dt>Price:</dt>
+					<dd><%= product['price'] %></dd>
+					<dt>Quantity:</dt>
+					<dd><%= product['quantity'] %></dd>
+					<dt>Votes:</dt>
+					<dd><%= product['votes'] %></dd>
+					<dt>Rating:</dt>
+					<dd><%= product['rating'] %></dd>
+				</dl>
+				<form action="/rate" method="post">
+					<input type="hidden" value="<%= product['_id'] %>" name="idproduct"/>
+					<input type="radio" name="vote" value="1" checked="checked" /> 1
+					<input type="radio" name="vote" value="2" /> 2
+					<input type="radio" name="vote" value="3" /> 3
+					<input type="radio" name="vote" value="4" /> 4
+					<input type="radio" name="vote" value="5" /> 5
+					<input type="submit" value="Rate it!"/>
+				</form>
+			</fieldset>
+		<% end %>
+	</body>
+</html>
